@@ -34,3 +34,5 @@ function parser:parseBlock(text)
   link.name = name
   link.display = display
 end
+
+return parser

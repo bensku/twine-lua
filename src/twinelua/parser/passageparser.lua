@@ -11,8 +11,13 @@ local parser = {}
 
 parser.iterator = {}
 
-function parser:create(iterator)
-  self.iterator = iterator
+function parser:create(iterator,o)
+  o = o or {}
+  setmetatable(o, self)
+  self.__index = self
+  
+  o.iterator = iterator
+  return o
 end
 
 function parser:getPassageName(line,tagsStart)
